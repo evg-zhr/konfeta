@@ -63,7 +63,6 @@ class Component extends DCLogic {
     segs.push({ pts: ring, spin: true, acc: false });
     segs.push({ pts: sp, spin: true, acc: true });
     segs.push({ pts: [[50, 84], [50, 126]], spin: false, acc: false });
-    segs.push({ pts: [[33, 108], [67, 108]], spin: false, acc: false });
     var all = [], total = 0;
     segs.forEach(function (s) { for (var k = 1; k < s.pts.length; k++) { var p = s.pts[k - 1], q = s.pts[k], L = Math.hypot(q[0] - p[0], q[1] - p[1]); all.push({ p: p, q: q, L: L, spin: s.spin, acc: s.acc }); total += L; } });
     var N = 1700, out = [], step = total / N, acc = 0, idx = 0, off = 0;

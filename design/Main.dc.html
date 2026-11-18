@@ -66,9 +66,6 @@ a{color:inherit}a:hover{color:inherit}
 .kf-pre{animation:kf-pre-out .2s 3s forwards}
 .kf-static *,.kf-static *::before,.kf-static *::after{animation:none!important;transition:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
-html.kf-snap{scroll-snap-type:y proximity;scroll-padding-top:64px}
-html.kf-snap [data-kf=rings]{display:block!important}
-.kf-snap [data-snap]{scroll-snap-align:start}
 .kf-stage{order:2}.kf-hero-copy{order:1}
 @media (max-width:760px){.kf-nav{display:none!important}.kf-hide-m{display:none!important}.kf-stage{order:0;min-height:300px!important}}
 </style>
@@ -81,18 +78,17 @@ html.kf-snap [data-kf=rings]{display:block!important}
 <filter id="kf-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4 0.8"></feGaussianBlur></filter>
 </defs>
 </svg>
-<canvas data-kf="rings" aria-hidden="true" style="position: fixed; inset: 0; width: 100%; height: 100%; display: none; pointer-events: none; z-index: 30; mix-blend-mode: difference"></canvas>
 
 <sc-if value="{{loading}}" hint-placeholder-val="{{ false }}">
 <div data-kf="preload" class="kf-pre" role="status" aria-label="Загрузка страницы" style="position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 24px; background: #260307">
-<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 120px; height: auto; color: #F6EDE6"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="6"></circle><path data-kf="pre-spiral" d="{{spiral}}" pathLength="1" fill="none" stroke="{{accent}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"></path><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="6" stroke-linecap="round"></path></svg>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 120px; height: auto; color: #F6EDE6"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="6"></circle><path data-kf="pre-spiral" d="{{spiral}}" pathLength="1" fill="none" stroke="{{accent}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 1; stroke-dashoffset: 1"></path><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="6" stroke-linecap="round"></path></svg>
 <div style="display: flex; align-items: baseline; gap: 12px"><span data-kf="preload-num" class="kf-mono" style="font-size: 44px; font-weight: 700; letter-spacing: -.03em">000</span><span class="kf-mono" style="font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #A88784">разминка</span></div>
 </div>
 </sc-if>
 
 <header style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px clamp(16px, 4vw, 56px); background: rgba(38,3,7,.88); backdrop-filter: blur(12px)">
 <a href="#top" aria-label="konfeta running club — наверх" style="display: flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: #F6EDE6">
-<svg viewBox="0 0 100 130" width="24" height="31" aria-hidden="true"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
+<svg viewBox="0 0 100 130" width="24" height="31" aria-hidden="true"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
 <span class="kf-d" style="font-weight: 700; font-size: 17px; line-height: 1; letter-spacing: -.01em">konfeta <span style="font-weight: 400; color: #D9C6C2">running club</span></span>
 </a>
 <nav class="kf-nav" aria-label="Разделы" style="display: flex; gap: 28px; font-size: 15px; font-weight: 600">
@@ -104,7 +100,7 @@ html.kf-snap [data-kf=rings]{display:block!important}
 <a href="#signup" class="kf-btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: {{accent}}; color: #260307; font-weight: 800; font-size: 15px; text-decoration: none; white-space: nowrap">Пробежать с нами<svg class="kf-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
 </header>
 
-<section data-snap id="top" data-kf="hero" aria-labelledby="hero-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 56px) clamp(56px, 7vw, 96px)">
+<section id="top" data-kf="hero" aria-labelledby="hero-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 56px) clamp(56px, 7vw, 96px)">
 <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: .25; mix-blend-mode: soft-light; pointer-events: none"><rect width="100%" height="100%" filter="url(#kf-grain)"></rect></svg>
 <canvas data-kf="particles" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none"></canvas>
 <div style="position: relative; max-width: 1328px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 16px clamp(24px, 4vw, 64px); min-height: clamp(560px, 52vw, 760px)">
@@ -122,7 +118,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="manifest" aria-label="О нас" style="padding: clamp(96px, 12vw, 180px) clamp(16px, 4vw, 56px); background: #260307">
+<section id="manifest" aria-label="О нас" style="padding: clamp(96px, 12vw, 180px) clamp(16px, 4vw, 56px); background: #260307">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 40 H1000" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M180 58 C 380 58, 470 18, 680 22 S 900 52, 1000 46" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px">
 <div class="kf-mono" style="flex: 1 1 220px; display: flex; align-items: flex-start; gap: 14px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784"><span style="color: {{accent}}">02</span><span style="display: block; width: 40px; height: 1px; margin-top: .7em; background: currentColor"></span><span>О нас</span></div>
 <div data-kf="manifesto" class="kf-d" style="flex: 999 1 640px; display: flex; flex-direction: column; gap: .55em; font-size: clamp(30px, 4.6vw, 72px); line-height: 1.12; font-weight: 700; letter-spacing: -.025em; min-width: 0">
@@ -133,7 +130,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="formats" class="kf-light" aria-labelledby="formats-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<section id="formats" class="kf-light" aria-labelledby="formats-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 30 C 200 70, 420 70, 560 40 S 860 4, 1000 26" fill="none" stroke="#260307" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 56 C 240 30, 520 30, 700 54 S 920 70, 1000 60" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 70 H420" fill="none" stroke="#260307" stroke-opacity=".25" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px)">
 <div data-reveal style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 20px">
@@ -203,7 +201,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="where" aria-labelledby="where-title" style="background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<section id="where" aria-labelledby="where-title" style="background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 24 H620 C 760 24, 820 64, 1000 64" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M260 48 H1000" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(36px, 4vw, 56px)">
 <div data-reveal style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 20px">
@@ -245,13 +244,14 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="gallery" data-kf="gallery" aria-labelledby="gallery-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(64px, 8vw, 120px) 0; border-top: 1px solid rgba(246,237,230,.1)">
+<section id="gallery" data-kf="gallery" aria-labelledby="gallery-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(64px, 8vw, 120px) 0; border-top: 1px solid rgba(246,237,230,.1)">
+<div aria-hidden="true" style="max-width: 1440px; margin: 0 auto clamp(28px, 4vw, 52px); padding: 0 clamp(16px, 4vw, 56px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 20 C 300 20, 400 60, 700 60 H1000" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 40 C 260 40, 380 76, 640 76 H1000" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 60 C 220 60, 330 90, 560 90" fill="none" stroke="#F6EDE6" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div data-reveal style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; max-width: 1440px; margin: 0 auto clamp(32px, 4vw, 56px); padding: 0 clamp(16px, 4vw, 56px)">
 <div style="display: flex; flex-direction: column; gap: 20px">
 <div class="kf-mono" style="display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784"><span style="color: {{accent}}">05</span><span style="display: block; width: 40px; height: 1px; background: currentColor"></span><span>Галерея</span></div>
 <h2 id="gallery-title" class="kf-d" style="margin: 0; font-size: clamp(40px, 5.6vw, 88px); line-height: 1; font-weight: 700; letter-spacing: -.03em">наши пробежки</h2>
 </div>
-<p class="kf-mono" style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #A88784">Тяни или листай →</p>
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right"><p class="kf-mono" style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #A88784">Тяни или листай →</p><p style="margin: 0; max-width: 340px; font-size: 14px; color: #A88784">Пока это референсы с Unsplash — скоро заменим своими кадрами.</p></div>
 </div>
 <div data-kf="strip" data-kf-x class="kf-strip" role="region" aria-label="Фотографии клуба, прокрутка по горизонтали" style="overflow-x: auto; overflow-y: hidden; padding: 12px clamp(16px, 4vw, 56px) 24px; touch-action: pan-x pan-y">
 <div data-kf="track" style="display: flex; align-items: center; gap: 20px; width: max-content; will-change: transform">
@@ -259,10 +259,11 @@ html.kf-snap [data-kf=rings]{display:block!important}
 <figure class="kf-tile" style="position: relative; flex: 0 0 auto; width: min({{t.w}}px, 78vw); aspect-ratio: {{t.ar}}; margin: 0; overflow: hidden; border-radius: 18px; background: #33080D">
 <div class="kf-tile-img" style="position: absolute; inset: 0; background: {{t.tone}}">
 <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%"><g filter="url(#kf-blur)"><rect x="-20" y="{{t.y1}}" width="140" height="3" fill="#F6EDE6" opacity=".08"></rect><rect x="-20" y="{{t.y2}}" width="140" height="1.6" fill="#F6EDE6" opacity=".06"></rect><ellipse cx="{{t.cx}}" cy="58" rx="9" ry="26" fill="#F6EDE6" opacity=".12"></ellipse><ellipse cx="{{t.cx2}}" cy="62" rx="8" ry="24" fill="#F6EDE6" opacity=".09"></ellipse></g><rect width="100" height="100" filter="url(#kf-grain)" opacity=".4" style="mix-blend-mode: soft-light"></rect></svg>
+<div style="position: absolute; inset: 0; background-image: url({{t.src}}); background-size: cover; background-position: center; filter: saturate(.8) contrast(1.05)"></div>
 </div>
-<svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none"><path class="kf-tile-track" d="{{t.trace}}" pathLength="1" fill="none" stroke="{{accent}}" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<span class="kf-mono" style="position: absolute; top: 14px; right: 16px; font-size: 11px; letter-spacing: .12em; color: #A88784">[ВАШЕ ФОТО]</span>
-<figcaption style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 12px; padding: 44px 18px 16px; font-size: 14px; font-weight: 600; line-height: 1.4; color: #F6EDE6; background: linear-gradient(rgba(38,3,7,0), rgba(38,3,7,.88))"><span class="kf-mono" style="color: {{accent}}">{{t.n}}</span><span>{{t.cap}}</span></figcaption>
+<svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none"><path class="kf-tile-track" d="{{t.trace}}" pathLength="1" fill="none" stroke="{{accent}}" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="kf-mono" style="position: absolute; top: 12px; right: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(38,3,7,.7); font-size: 10px; letter-spacing: .12em; color: #F6EDE6">РЕФ</span>
+<figcaption style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 12px; padding: 44px 18px 16px; font-size: 14px; font-weight: 600; line-height: 1.4; color: #F6EDE6; background: linear-gradient(rgba(38,3,7,0), rgba(38,3,7,.88))"><span class="kf-mono" style="color: {{accent}}">{{t.n}}</span><span style="display: flex; flex-direction: column; gap: 2px"><span>{{t.cap}}</span><span class="kf-mono" style="font-size: 10px; font-weight: 400; letter-spacing: .06em; color: #D9C6C2">Фото: {{t.by}} / Unsplash</span></span></figcaption>
 </figure>
 </sc-for>
 </div>
@@ -270,7 +271,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 <div data-kf="cursor" class="kf-cursor kf-mono" aria-hidden="true" style="position: absolute; left: 0; top: 0; z-index: 5; display: flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 999px; background: {{accent}}; color: #260307; font-size: 13px; font-weight: 700; letter-spacing: .12em; pointer-events: none; opacity: 0; will-change: transform">ТЯНИ</div>
 </section>
 
-<section data-snap id="routes" class="kf-light" aria-labelledby="routes-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<section id="routes" class="kf-light" aria-labelledby="routes-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 40 H1000" fill="none" stroke="#260307" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M180 58 C 380 58, 470 18, 680 22 S 900 52, 1000 46" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(28px, 3vw, 40px)">
 <div data-reveal style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 20px">
@@ -295,6 +297,7 @@ html.kf-snap [data-kf=rings]{display:block!important}
 <figcaption class="kf-mono" style="position: absolute; top: 16px; left: 18px; font-size: 12px; letter-spacing: .12em; color: #7A4E4E">СТАРТ — ТОЧКА {{route.point}} · [ТРЕК ИЗ GPX]</figcaption>
 </figure>
 <div style="flex: 1 1 320px; display: flex; flex-direction: column">
+<figure style="position: relative; margin: 0 0 24px; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #3D0C12"><div style="position: absolute; inset: 0; background-image: url(https://images.unsplash.com/photo-1633230329619-70ae2e6d50bb?auto=format&amp;fit=crop&amp;w=800&amp;q=70); background-size: cover; background-position: center"></div><span class="kf-mono" style="position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(38,3,7,.7); font-size: 10px; letter-spacing: .12em; color: #F6EDE6">РЕФ · ТРЕК В ПРИЛОЖЕНИИ</span><figcaption class="kf-mono" style="position: absolute; left: 12px; bottom: 10px; font-size: 10px; letter-spacing: .06em; color: #F6EDE6">Фото: Will Truettner / Unsplash</figcaption></figure>
 <p style="margin: 0 0 24px; font-size: 20px; line-height: 1.5">{{route.desc}}</p>
 <dl style="margin: 0 0 28px">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(38,3,7,.18)"><dt class="kf-mono" style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #7A4E4E">Дистанция</dt><dd class="kf-mono" style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -.03em"><span data-count>[0.0]</span><span style="font-size: 15px; margin-left: 6px">км</span></dd></div>
@@ -308,7 +311,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="numbers" aria-labelledby="numbers-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<section id="numbers" aria-labelledby="numbers-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 30 C 200 70, 420 70, 560 40 S 860 4, 1000 26" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 56 C 240 30, 520 30, 700 54 S 920 70, 1000 60" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 70 H420" fill="none" stroke="#F6EDE6" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px)">
 <div style="display: flex; flex-direction: column; gap: 20px">
 <div class="kf-mono" style="display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784"><span style="color: {{accent}}">07</span><span style="display: block; width: 40px; height: 1px; background: currentColor"></span><span>Клуб в цифрах</span></div>
@@ -322,7 +326,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="team" class="kf-light" aria-labelledby="team-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px) clamp(48px, 6vw, 80px)">
+<section id="team" class="kf-light" aria-labelledby="team-title" style="background: #F6EDE6; color: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px) clamp(48px, 6vw, 80px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 24 H620 C 760 24, 820 64, 1000 64" fill="none" stroke="#260307" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M260 48 H1000" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(36px, 4vw, 56px)">
 <div data-reveal style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 20px">
@@ -364,7 +369,7 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </figure>
 
 <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; aspect-ratio: 3 / 4; padding: 22px; border: 2px dashed rgba(38,3,7,.3); border-radius: 18px">
-<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 44px; height: auto; color: #260307"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 44px; height: auto; color: #260307"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
 <div style="display: flex; flex-direction: column; gap: 8px"><strong class="kf-d" style="font-size: 21px; line-height: 1.2">Скоро — тренер</strong><span style="font-size: 15px; line-height: 1.45; color: #4A2A2C">Хотим пригласить тренера на занятия раз в неделю. Знаешь хорошего? Напиши нам.</span></div>
 </div>
 
@@ -372,7 +377,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="faq" class="kf-light" aria-labelledby="faq-title" style="background: #F6EDE6; color: #260307; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 56px) clamp(80px, 10vw, 140px)">
+<section id="faq" class="kf-light" aria-labelledby="faq-title" style="background: #F6EDE6; color: #260307; padding: clamp(48px, 6vw, 80px) clamp(16px, 4vw, 56px) clamp(80px, 10vw, 140px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 20 C 300 20, 400 60, 700 60 H1000" fill="none" stroke="#260307" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 40 C 260 40, 380 76, 640 76 H1000" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 60 C 220 60, 330 90, 560 90" fill="none" stroke="#260307" stroke-opacity=".25" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="max-width: 1328px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px clamp(32px, 5vw, 80px)">
 <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 20px">
 <div class="kf-mono" style="display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #7A4E4E"><span style="color: #260307; font-weight: 700">09</span><span style="display: block; width: 40px; height: 1px; background: currentColor"></span><span>Вопросы</span></div>
@@ -404,8 +410,9 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<section data-snap id="signup" aria-labelledby="signup-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
-<svg viewBox="0 0 100 130" aria-hidden="true" style="position: absolute; right: -120px; top: -60px; width: min(620px, 90vw); height: auto; color: #F6EDE6; opacity: .05; pointer-events: none"><g class="kf-a-spin"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
+<section id="signup" aria-labelledby="signup-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 56px)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 40 H1000" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M180 58 C 380 58, 470 18, 680 22 S 900 52, 1000 46" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="position: absolute; right: -120px; top: -60px; width: min(620px, 90vw); height: auto; color: #F6EDE6; opacity: .05; pointer-events: none"><g class="kf-a-spin"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
 <div style="position: relative; max-width: 1328px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(40px, 6vw, 96px); align-items: flex-start">
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
 <div class="kf-mono" style="display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784"><span style="color: {{accent}}">10</span><span style="display: block; width: 40px; height: 1px; background: currentColor"></span><span>Записаться</span></div>
@@ -440,7 +447,7 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </sc-if>
 <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="display: flex; flex-direction: column; gap: 18px; padding: clamp(24px, 3vw, 40px); background: #33080D; border: 1px solid {{accent}}; border-radius: 24px">
-<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 56px; height: auto; color: {{accent}}"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 56px; height: auto; color: {{accent}}"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
 <h3 class="kf-d" style="margin: 0; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; font-weight: 700; letter-spacing: -.03em">Ура, {{sentName}}!</h3>
 <p style="margin: 0; font-size: 18px; color: #D9C6C2">Напишем, когда и где встречаемся, и добавим в чат клуба. До встречи на набережной!</p>
 <button type="button" class="kf-btn kf-ghost" onClick="{{reset}}" style="align-self: flex-start; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(246,237,230,.35); background: transparent; color: #F6EDE6; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Записать подругу</button>
@@ -450,7 +457,8 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 </section>
 
-<footer data-snap style="display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 56px) 28px; overflow: hidden; background: #260307; border-top: 1px solid rgba(246,237,230,.1)">
+<footer style="display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 56px) 28px; overflow: hidden; background: #260307; border-top: 1px solid rgba(246,237,230,.1)">
+<div aria-hidden="true" style="max-width: 1328px; margin: 0 auto clamp(28px, 4vw, 52px);"><svg data-lines viewBox="0 0 1000 96" preserveAspectRatio="none" style="display: block; width: 100%; height: clamp(44px, 6vw, 84px); overflow: visible"><path d="M0 24 H620 C 760 24, 820 64, 1000 64" fill="none" stroke="#F6EDE6" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M260 48 H1000" fill="none" stroke="{{accent}}" stroke-opacity="1" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 12px"><span class="kf-mono" style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784">Мы в сети</span><a href="#" class="kf-d" style="font-size: 22px; font-weight: 700; text-decoration: none">[Telegram] ↗</a><a href="#" class="kf-d" style="font-size: 22px; font-weight: 700; text-decoration: none">[Instagram] ↗</a></div>
 <div style="display: flex; flex-direction: column; gap: 12px"><span class="kf-mono" style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784">Где</span><span style="font-size: 18px">Шелепихинская набережная</span><span style="font-size: 18px; color: #D9C6C2">Зимой — велотрек, Крылатское</span></div>
@@ -459,14 +467,14 @@ html.kf-snap [data-kf=rings]{display:block!important}
 </div>
 <div style="display: flex; align-items: center; gap: clamp(12px, 2vw, 32px)">
 <div data-kf="footword" aria-hidden="true" class="kf-d" style="flex: 1; font-size: clamp(56px, 16vw, 240px); font-weight: 700; line-height: 1; letter-spacing: -.04em; white-space: nowrap; overflow: hidden; font-variation-settings: 'wght' 700">konfeta</div>
-<svg viewBox="0 0 100 130" aria-hidden="true" style="flex: none; width: clamp(48px, 9vw, 150px); height: auto; color: {{accent}}"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="flex: none; width: clamp(48px, 9vw, 150px); height: auto; color: {{accent}}"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
 </div>
 <div class="kf-mono" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #A88784"><span>© 2026 konfeta running club · Москва</span><span>Бегаем медленно</span><a href="#top" style="color: #F6EDE6; text-decoration: none">Наверх ↑</a></div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF9CC2","options":["#FF9CC2","#FFB36B","#9FE8C8"]},"scrollRings":{"editor":"boolean","default":true},"preloader":{"editor":"boolean","default":true},"reducedMotion":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":8400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF9CC2","options":["#FF9CC2","#FFB36B","#9FE8C8"]},"preloader":{"editor":"boolean","default":true},"reducedMotion":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":8400}}'>
 class Component extends DCLogic {
   isReduced() {
     if (this.props.reducedMotion) return true;
@@ -488,15 +496,15 @@ class Component extends DCLogic {
       { num: '02', name: 'Велотрек в Крылатском', d: P(r2), sx: r2[0][0], sy: r2[0][1], point: 'B', surface: 'Крытый трек', season: 'Зимой · планируем', desc: 'Зимой планируем бегать круги под крышей — тепло, светло и без гололёда. Условия расскажем отдельно.' }
     ];
     var base = [
-      { n: '01', cap: 'С чего всё началось: соседки на Шелепихе', w: 420, ar: '4 / 5', tone: '#3A0D13' },
-      { n: '02', cap: 'Утро на набережной', w: 560, ar: '3 / 2', tone: '#300A0F' },
-      { n: '03', cap: 'Болтаем на ходу', w: 340, ar: '3 / 4', tone: '#421219' },
-      { n: '04', cap: 'Вся компания в одном кадре', w: 620, ar: '16 / 10', tone: '#350B11' },
-      { n: '05', cap: 'Детали: шнурки, часы, конфеты', w: 360, ar: '1 / 1', tone: '#47161D' },
-      { n: '06', cap: 'Первый километр новенькой', w: 440, ar: '4 / 5', tone: '#2F090E' },
-      { n: '07', cap: 'Обнимашки после пробежки', w: 520, ar: '3 / 2', tone: '#3F1017' },
-      { n: '08', cap: 'Кофе после', w: 380, ar: '3 / 4', tone: '#330A10' },
-      { n: '09', cap: 'Зимой — на велотрек', w: 480, ar: '5 / 4', tone: '#3C0F15' }
+      { n: '01', cap: 'Утро, втроём по пустой улице', by: 'Fitsum Admasu', src: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=70', w: 420, ar: '4 / 5', tone: '#3A0D13' },
+      { n: '02', cap: 'Своя компания на асфальте', by: 'Miguel A Amutio', src: 'https://images.unsplash.com/photo-1590333748338-d629e4564ad9?auto=format&fit=crop&w=900&q=70', w: 560, ar: '3 / 2', tone: '#300A0F' },
+      { n: '03', cap: 'Свой темп, свой маршрут', by: 'Filip Mroz', src: 'https://images.unsplash.com/photo-1480179087180-d9f0ec044897?auto=format&fit=crop&w=900&q=70', w: 340, ar: '3 / 4', tone: '#421219' },
+      { n: '04', cap: 'Город на бегу', by: 'Jerry Wei', src: 'https://images.unsplash.com/photo-1761064039797-837fc97e5c86?auto=format&fit=crop&w=900&q=70', w: 620, ar: '16 / 10', tone: '#350B11' },
+      { n: '05', cap: 'Вечерняя пробежка', by: 'Venti Views', src: 'https://images.unsplash.com/photo-1706459418431-f68031d1b006?auto=format&fit=crop&w=900&q=70', w: 360, ar: '1 / 1', tone: '#47161D' },
+      { n: '06', cap: 'Рассвет у воды', by: 'Ilia Bronskiy', src: 'https://images.unsplash.com/photo-1776977519844-634b564d4a9a?auto=format&fit=crop&w=900&q=70', w: 440, ar: '4 / 5', tone: '#2F090E' },
+      { n: '07', cap: 'Вместе по брусчатке', by: 'Lukáš Lehotský', src: 'https://images.unsplash.com/photo-1634921363975-46fa99024422?auto=format&fit=crop&w=900&q=70', w: 520, ar: '3 / 2', tone: '#3F1017' },
+      { n: '08', cap: 'Шаг — тоже движение', by: 'Emma Simpson', src: 'https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?auto=format&fit=crop&w=900&q=70', w: 380, ar: '3 / 4', tone: '#330A10' },
+      { n: '09', cap: 'Движение и смаз', by: 'Pierre-Antoine Franck', src: 'https://images.unsplash.com/photo-1759674804375-3d0c038a0a6a?auto=format&fit=crop&w=900&q=70', w: 480, ar: '5 / 4', tone: '#3C0F15' }
     ];
     var tiles = base.map(function (b, k) {
       var g = rnd(k * 977 + 13); g(); g();
@@ -593,7 +601,7 @@ class Component extends DCLogic {
     this.spins = this.qa('[data-kf-spin]');
     this.heroEl = this.q('[data-kf="hero"]');
     this.setupLogo(on);
-    this.setupRings(on);
+    this.lineSets = this.qa('[data-lines]').map(function (el) { return { svg: el, w: -1, paths: Array.prototype.slice.call(el.querySelectorAll('path')).map(function (p) { return { el: p, len: 0, o: null }; }) }; });
     this.manifesto = this.q('[data-kf="manifesto"]');
     this.words = this.qa('[data-kf="manifesto"] [data-w]');
     this.footWord = this.q('[data-kf="footword"]');
@@ -762,64 +770,16 @@ class Component extends DCLogic {
     if (R) this._pDrawn = true;
   }
 
-  setupRings(on) {
-    var self = this;
-    this.rc = this.q('[data-kf="rings"]');
-    var de = document.documentElement;
-    this.flow = (de.scrollHeight > (window.innerHeight || 0) * 1.6) && (this.props.scrollRings ?? true);
-    if (!this.rc || !this.flow || !this.rc.getContext) return;
-    this.rctx = this.rc.getContext('2d');
-    de.classList.add('kf-snap');
-    this._cleanup.push(function () { de.classList.remove('kf-snap'); });
-    this.snapEls = this.qa('[data-snap]');
-    this.rprog = 0; this.rang = 0; this.secIdx = -1; this.pulses = [];
-  }
-
-  ringsFrame(t, dt, av, vh) {
-    if (!this.rctx) return;
-    var c = this.rc, ctx = this.rctx, w = window.innerWidth, h = vh, R = this.reduced;
-    var dpr = Math.min(2, window.devicePixelRatio || 1);
-    if (c.width !== Math.round(w * dpr) || c.height !== Math.round(h * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); }
-    var de = document.documentElement, max = Math.max(1, de.scrollHeight - h);
-    var target = this.clamp(this.sy / max, 0, 1);
-    this.rprog += (target - this.rprog) * (R ? 1 : 0.08);
-    var idx = 0;
-    for (var s = 0; s < this.snapEls.length; s++) if (this.snapEls[s].getBoundingClientRect().top <= h * 0.5) idx = s;
-    if (idx !== this.secIdx) { if (this.secIdx >= 0 && !R) this.pulses.push({ t0: t, dir: idx > this.secIdx ? 1 : -1 }); this.secIdx = idx; }
-    if (!R) this.rang += dt * 0.00006 * (1 + av * 10);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-    ctx.globalAlpha = this.clamp((this.sy - h * 0.25) / (h * 0.5), 0, 1);
-    if (ctx.globalAlpha <= 0) return;
-    var small = w < 700;
-    var cx = small ? w * 0.92 : w * 0.88, cy = h * 0.5;
-    var turns = Math.max(4, this.snapEls.length), rMax = Math.hypot(Math.max(cx, w - cx), h) * 1.05, r0 = 14;
-    var b = (rMax - r0) / (Math.PI * 2 * turns);
-    var thMax = Math.max(0.3, (0.08 + this.rprog * 0.92) * turns * Math.PI * 2);
-    var wob = R ? 0 : av * 10;
-    ctx.lineWidth = 1.2; ctx.lineCap = 'round';
-    ctx.strokeStyle = 'rgba(246,237,230,0.22)';
-    ctx.beginPath();
-    var first = true, th, r, x, y;
-    for (th = 0; th <= thMax; th += 0.04) {
-      r = r0 + b * th + Math.sin(th * 3 - t * 0.006) * wob;
-      x = cx + Math.cos(th + this.rang) * r; y = cy + Math.sin(th + this.rang) * r;
-      if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-    r = r0 + b * thMax;
-    x = cx + Math.cos(thMax + this.rang) * r; y = cy + Math.sin(thMax + this.rang) * r;
-    ctx.fillStyle = 'rgba(246,237,230,0.6)';
-    ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2); ctx.fill();
-    for (var k = this.pulses.length - 1; k >= 0; k--) {
-      var pu = this.pulses[k], age = (t - pu.t0) / 1400;
-      if (age >= 1) { this.pulses.splice(k, 1); continue; }
-      var e = 1 - Math.pow(1 - age, 3);
-      ctx.strokeStyle = 'rgba(246,237,230,' + (0.35 * (1 - age)).toFixed(3) + ')';
-      ctx.lineWidth = 1 + 2 * (1 - age);
-      ctx.beginPath(); ctx.arc(cx, cy, r * (pu.dir > 0 ? 0.6 + 0.5 * e : 1.1 - 0.5 * e), 0, Math.PI * 2); ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
+  screenLen(el) {
+    try {
+      var L = el.getTotalLength(), m = el.getScreenCTM(), sum = 0, px = null, py = null;
+      for (var i = 0; i <= 64; i++) {
+        var pt = el.getPointAtLength(L * i / 64), x = m.a * pt.x + m.c * pt.y, y = m.b * pt.x + m.d * pt.y;
+        if (px !== null) sum += Math.hypot(x - px, y - py);
+        px = x; py = y;
+      }
+      return sum + 2;
+    } catch (e) { return 2000; }
   }
 
   setupReveals() {
@@ -875,12 +835,19 @@ class Component extends DCLogic {
     var av = Math.min(1, Math.abs(this.v) / 40);
 
     this.logoFrame(t, dt, av, vh);
-    this.ringsFrame(t, dt, av, vh);
-
-    if (this.spins && this.spins.length) {
-      if (!R) this.spin = (this.spin + dt * 0.018 * (1 + av * 8)) % 360;
-      var tr = 'rotate(' + this.spin.toFixed(2) + 'deg)';
-      for (var sI = 0; sI < this.spins.length; sI++) { var se = this.spins[sI]; se.style.transformBox = 'view-box'; se.style.transformOrigin = '50px 45px'; se.style.transform = tr; }
+    if (this.lineSets) {
+      for (var li = 0; li < this.lineSets.length; li++) {
+        var LS = this.lineSets[li], lr = LS.svg.getBoundingClientRect();
+        if (lr.width !== LS.w) { LS.w = lr.width; for (var pk = 0; pk < LS.paths.length; pk++) LS.paths[pk].len = this.screenLen(LS.paths[pk].el); LS.ready = false; }
+        if (lr.bottom < -50 || lr.top > vh + 50) { if (LS.ready) continue; }
+        var lp = R ? 1 : this.clamp((vh * 0.96 - lr.top) / (vh * 0.55), 0, 1);
+        for (var pj = 0; pj < LS.paths.length; pj++) {
+          var PP = LS.paths[pj], q = this.clamp(lp * 1.45 - pj * 0.22, 0, 1), qe = q >= 1 ? 1 : 1 - Math.pow(1 - q, 3);
+          var off = (PP.len * (1 - qe)).toFixed(1);
+          if (PP.o !== off) { PP.el.style.strokeDasharray = PP.len.toFixed(1) + ' ' + PP.len.toFixed(1); PP.el.style.strokeDashoffset = off; PP.o = off; }
+        }
+        LS.ready = true;
+      }
     }
 
     if (this.manifesto && this.words.length) {
