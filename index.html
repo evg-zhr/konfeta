@@ -70,7 +70,8 @@ a{color:inherit}a:hover{color:inherit}
 .kf-pre{animation:kf-pre-out .2s 3s forwards}
 .kf-static *,.kf-static *::before,.kf-static *::after{animation:none!important;transition:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
-@media (max-width:760px){.kf-nav{display:none!important}.kf-hide-m{display:none!important}}
+.kf-stage{order:2}.kf-hero-copy{order:1}
+@media (max-width:760px){.kf-nav{display:none!important}.kf-hide-m{display:none!important}.kf-stage{order:0;min-height:300px!important}}
 </style>
 </head>
 <body>
@@ -92,7 +93,7 @@ a{color:inherit}a:hover{color:inherit}
 </div>
 </sc-if>
 
-<header style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px clamp(16px, 4vw, 56px); background: rgba(38,3,7,.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(246,237,230,.1)">
+<header style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px clamp(16px, 4vw, 56px); background: rgba(38,3,7,.88); backdrop-filter: blur(12px)">
 <a href="#top" aria-label="konfeta running club — наверх" style="display: flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: #F6EDE6">
 <svg viewBox="0 0 100 130" width="24" height="31" aria-hidden="true"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="7"></circle><path dc-a-d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path></svg>
 <span class="kf-d" style="font-weight: 700; font-size: 17px; line-height: 1; letter-spacing: -.01em">konfeta <span style="font-weight: 400; color: #D9C6C2">running club</span></span>
@@ -106,34 +107,20 @@ a{color:inherit}a:hover{color:inherit}
 <a href="#signup" class="kf-btn" dc-a-style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: {{accent}}; color: #260307; font-weight: 800; font-size: 15px; text-decoration: none; white-space: nowrap">Пробежать с нами<svg class="kf-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
 </header>
 
-<section id="top" data-kf="hero" aria-labelledby="hero-title" style="position: relative; display: flex; flex-direction: column; padding: 24px clamp(16px, 4vw, 56px) 0; overflow: hidden; background: #260307">
+<section id="top" data-kf="hero" aria-labelledby="hero-title" style="position: relative; overflow: hidden; background: #260307; padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 56px) clamp(56px, 7vw, 96px)">
 <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: .25; mix-blend-mode: soft-light; pointer-events: none"><rect width="100%" height="100%" filter="url(#kf-grain)"></rect></svg>
-<div class="kf-mono" style="position: relative; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784">
-<span>Женский беговой клуб · Москва</span>
-<span>Шелепихинская набережная</span>
-</div>
-<div data-kf="word" aria-hidden="true" class="kf-d" style="position: relative; display: flex; justify-content: space-between; margin-top: clamp(16px, 3vw, 40px); overflow: hidden; font-size: clamp(64px, 17vw, 250px); font-weight: 700; line-height: 1; letter-spacing: -.02em; padding-bottom: .08em; color: #F6EDE6">
-<sc-for dc-a-list="{{letters}}" as="l" hint-placeholder-count="7"><span data-kf-letter style="display: inline-block; font-variation-settings: 'wght' 700">{{l.ch}}</span></sc-for>
-</div>
-<div style="position: relative; display: flex; align-items: center; gap: clamp(12px, 2vw, 24px); margin-top: 4px">
-<span class="kf-d" style="font-size: clamp(22px, 3vw, 44px); font-weight: 400; line-height: 1; white-space: nowrap; color: #D9C6C2">running club</span>
-<span style="flex: 1; height: 1px; background: rgba(246,237,230,.25)"></span>
-<svg viewBox="0 0 100 130" aria-hidden="true" dc-a-style="flex: none; width: clamp(48px, 6vw, 88px); height: auto; color: {{accent}}"><g data-kf-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path dc-a-d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 28px 48px; align-items: end; margin-top: clamp(28px, 4vw, 56px); padding-bottom: 40px">
-<h1 id="hero-title" class="kf-d" style="margin: 0; font-size: clamp(34px, 4.4vw, 68px); line-height: 1.02; font-weight: 700; letter-spacing: -.025em; text-wrap: balance">Бегаем медленно. Болтаем много.</h1>
-<div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start; max-width: 560px">
-<p style="margin: 0; font-size: 19px; color: #D9C6C2">Женский беговой клуб в Москве. Начинали несколько соседок на Шелепихинской набережной — сейчас нас уже больше 10.</p>
+<canvas data-kf="particles" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none"></canvas>
+<div style="position: relative; max-width: 1328px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 16px clamp(24px, 4vw, 64px); min-height: clamp(560px, 52vw, 760px)">
+<div data-kf="stage" class="kf-stage" aria-hidden="true" style="flex: 1 1 380px; align-self: stretch; min-height: 340px"></div>
+<div class="kf-hero-copy" style="flex: 1 1 540px; min-width: 0; display: flex; flex-direction: column; gap: 24px; align-items: flex-start">
+<span class="kf-mono" style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784">Женский беговой клуб · Москва</span>
+<h1 id="hero-title" class="kf-d" style="margin: 0; font-size: clamp(44px, 6.4vw, 96px); line-height: 1.02; font-weight: 700; letter-spacing: -.035em; text-wrap: balance">Бегаем медленно. Болтаем много.</h1>
+<p style="margin: 0; max-width: 560px; font-size: 19px; color: #D9C6C2">Начинали несколько соседок на Шелепихинской набережной — сейчас нас уже больше 10. Если давно собираешься начать или ищешь компанию — приходи.</p>
 <p class="kf-mono" style="margin: 0; font-size: 13px; letter-spacing: .04em; color: #F6EDE6">Пробежки бесплатные · время и место — <a href="#where" dc-a-style="color: {{accent}}">в чате клуба</a></p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="#signup" class="kf-btn" dc-a-style="display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 28px; border-radius: 999px; background: {{accent}}; color: #260307; font-weight: 800; font-size: 17px; text-decoration: none">Пробежать с нами<svg class="kf-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
-<a href="#formats" class="kf-btn kf-ghost" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(246,237,230,.35); color: #F6EDE6; font-weight: 700; font-size: 17px; text-decoration: none">Как мы бегаем</a>
+<a href="#where" class="kf-btn kf-ghost" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(246,237,230,.35); color: #F6EDE6; font-weight: 700; font-size: 17px; text-decoration: none">Где бегаем</a>
 </div>
-</div>
-</div>
-<div aria-hidden="true" style="position: relative; margin: 0 calc(-1 * clamp(16px, 4vw, 56px)); border-top: 1px solid rgba(246,237,230,.14); padding: 16px 0; overflow: hidden">
-<div data-kf="ticker" class="kf-d" style="display: flex; width: max-content; font-size: 15px; font-weight: 700; will-change: transform">
-<sc-for dc-a-list="{{ticks}}" as="t" hint-placeholder-count="10"><span dc-a-style="display: flex; align-items: center; gap: 18px; padding-right: 18px; color: {{t.color}}; white-space: nowrap"><span>{{t.label}}</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" dc-a-stroke="{{accent}}" stroke-width="1.5"></circle><circle cx="6" cy="6" r="1.5" dc-a-fill="{{accent}}"></circle></svg></span></sc-for>
 </div>
 </div>
 </section>
@@ -667,8 +654,6 @@ class Component extends DCLogic {
     var accent = this.props.accent ?? '#FF9CC2';
     var reduced = this.isReduced();
     var loading = (this.props.preloader ?? true) && !reduced && !s.loaded;
-    var word = String(this.props.heroWord ?? 'konfeta').trim().slice(0, 10) || 'konfeta';
-    var letters = Array.from(word).map(function (ch, i) { return { ch: ch, i: i }; });
     var pt = s.point || 'A';
     var mk = function (id) {
       var on = pt === id;
@@ -684,7 +669,7 @@ class Component extends DCLogic {
     var err = s.err || {};
     return {
       accent: accent, staticCls: this.props.reducedMotion ? 'kf-static' : '',
-      loading: loading, letters: letters, ticks: m.ticks, spiral: m.spiral,
+      loading: loading, spiral: m.spiral,
       pA: mk('A'), pB: mk('B'),
       tiles: m.tiles, tabs: tabs, route: m.routes[ri],
       f0: fq(0), f1: fq(1), f2: fq(2), f3: fq(3),
@@ -741,10 +726,9 @@ class Component extends DCLogic {
     this.sy = this.scrollTop(); this.lastSy = this.sy; this.v = 0; this.phase = 0; this.tick0 = 0; this.spin = 0;
     on(window, 'scroll', function (e) { self.onScroll(e); }, { passive: true, capture: true });
 
-    this.letters = this.qa('[data-kf-letter]');
     this.spins = this.qa('[data-kf-spin]');
     this.heroEl = this.q('[data-kf="hero"]');
-    this.ticker = this.q('[data-kf="ticker"]');
+    this.setupParticles(on);
     this.manifesto = this.q('[data-kf="manifesto"]');
     this.words = this.qa('[data-kf="manifesto"] [data-w]');
     this.footWord = this.q('[data-kf="footword"]');
@@ -821,11 +805,105 @@ class Component extends DCLogic {
   }
 
   introHero(delay) {
-    if (this.reduced) return;
-    var d0 = delay || 0;
-    (this.letters || []).forEach(function (el, i) {
-      if (el.animate) el.animate([{ transform: 'translateY(110%)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], { duration: 1200, delay: d0 + i * 70, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+    this.pStart = performance.now() + (delay || 0);
+  }
+
+  sampleMark(N) {
+    var segs = [], i, a, th1 = Math.PI * 2 * 2.55, ring = [], sp = [];
+    for (i = 0; i <= 120; i++) { a = i / 120 * Math.PI * 2; ring.push([50 + Math.cos(a) * 38, 45 + Math.sin(a) * 38]); }
+    for (i = 0; i <= 140; i++) { var th = th1 * i / 140, r = 2 + 28 * (th / th1), ph = Math.PI / 2 + Math.PI * 0.08 - (th1 - th); sp.push([50 + r * Math.cos(ph), 45 + r * Math.sin(ph)]); }
+    segs.push({ pts: ring, spin: true, acc: false }, { pts: sp, spin: true, acc: true }, { pts: [[50, 84], [50, 126]], spin: false, acc: false }, { pts: [[33, 108], [67, 108]], spin: false, acc: false });
+    var all = [], total = 0;
+    segs.forEach(function (sg) { for (var k = 1; k < sg.pts.length; k++) { var p = sg.pts[k - 1], q = sg.pts[k], L = Math.hypot(q[0] - p[0], q[1] - p[1]); all.push({ p: p, q: q, L: L, spin: sg.spin, acc: sg.acc }); total += L; } });
+    var out = [], step = total / N, acc = 0, idx = 0;
+    for (var n = 0; n < N; n++) {
+      var d = n * step;
+      while (idx < all.length - 1 && acc + all[idx].L < d) { acc += all[idx].L; idx++; }
+      var g = all[idx], u = g.L ? (d - acc) / g.L : 0;
+      out.push({ lx: g.p[0] + (g.q[0] - g.p[0]) * u + (Math.random() - 0.5) * 6, ly: g.p[1] + (g.q[1] - g.p[1]) * u + (Math.random() - 0.5) * 6, spin: g.spin, acc: g.acc });
+    }
+    return out;
+  }
+
+  setupParticles(on) {
+    var self = this;
+    this.pc = this.q('[data-kf="particles"]');
+    this.stage = this.q('[data-kf="stage"]');
+    if (!this.pc || !this.stage || !this.heroEl || !this.pc.getContext) return;
+    this.pctx = this.pc.getContext('2d');
+    var W = this.heroEl.clientWidth || 1440, H = this.heroEl.clientHeight || 800, small = W < 700, rnd = Math.random;
+    this.parts = this.sampleMark(small ? 760 : 1500).map(function (p) {
+      return { lx: p.lx, ly: p.ly, spin: p.spin, acc: p.acc, dust: false, x: rnd() * W, y: rnd() * H, vx: 0, vy: 0, seed: rnd() * 6.283, f1: 0.0006 + rnd() * 0.0014, f2: 0.0009 + rnd() * 0.002, amp: 3 + rnd() * 13, size: 1.4 + rnd() * 1.8 };
     });
+    for (var i = 0; i < (small ? 160 : 380); i++) this.parts.push({ dust: true, acc: rnd() < 0.3, x: rnd() * W, y: rnd() * H, vx: (rnd() - 0.5) * 0.6, vy: (rnd() - 0.5) * 0.6, seed: rnd() * 6.283, size: 1 + rnd() * 2.2, alpha: 0.18 + rnd() * 0.35 });
+    this.pmx = -9999; this.pmy = -9999; this.pboost = 0; this.pang = 0;
+    if (this.pStart === undefined) this.pStart = null;
+    on(this.heroEl, 'pointermove', function (e) {
+      var r = self.heroEl.getBoundingClientRect(), nx = e.clientX - r.left, ny = e.clientY - r.top;
+      if (self.pmx > -9000) self.pboost = Math.min(2.5, self.pboost + Math.hypot(nx - self.pmx, ny - self.pmy) * 0.012);
+      self.pmx = nx; self.pmy = ny;
+    });
+    on(this.heroEl, 'pointerleave', function () { self.pmx = -9999; self.pmy = -9999; });
+  }
+
+  particleFrame(t, dt, av, vh) {
+    if (!this.parts || !this.pc) return;
+    var hero = this.heroEl, hr = hero.getBoundingClientRect();
+    if (hr.bottom < 0 || hr.top > vh) return;
+    var c = this.pc, ctx = this.pctx, w = hero.clientWidth, h = hero.clientHeight, R = this.reduced;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (c.width !== Math.round(w * dpr) || c.height !== Math.round(h * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); this._pDrawn = false; }
+    if (R && this._pDrawn) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    var sr = this.stage.getBoundingClientRect();
+    var S = Math.min(sr.height * 0.9 / 130, sr.width * 0.86 / 100);
+    var ox = sr.left - hr.left + sr.width / 2 - 50 * S, oy = sr.top - hr.top + sr.height / 2 - 65 * S;
+    this.pboost *= 0.95;
+    var chaos = (this.props.chaos ?? 1) * (1 + av * 2.5 + this.pboost);
+    if (!R) this.pang += dt * 0.00022 * (1 + av * 4);
+    var ca = Math.cos(this.pang), sa = Math.sin(this.pang);
+    var started = this.pStart !== null && t >= this.pStart;
+    var ramp = started ? Math.min(1, (t - this.pStart) / 2200) : 0;
+    var k = 0.004 + 0.022 * ramp * ramp, mx = this.pmx, my = this.pmy;
+    var accent = this.props.accent ?? '#FF9CC2', i, p, dx, dy, d2, d, f;
+    for (i = 0; i < this.parts.length; i++) {
+      p = this.parts[i];
+      if (p.dust) {
+        if (R) continue;
+        var an = Math.sin(p.x * 0.004 + t * 0.00025 + p.seed) * Math.PI + Math.cos(p.y * 0.005 - t * 0.0002) * Math.PI;
+        p.vx += Math.cos(an) * 0.05 * chaos; p.vy += Math.sin(an) * 0.05 * chaos;
+        dx = p.x - mx; dy = p.y - my; d2 = dx * dx + dy * dy;
+        if (d2 < 28900 && d2 > 0.01) { d = Math.sqrt(d2); f = (1 - d / 170) * 3; p.vx += dx / d * f; p.vy += dy / d * f; }
+        p.vx *= 0.96; p.vy *= 0.96; p.x += p.vx; p.y += p.vy;
+        if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
+        if (p.y < -10) p.y = h + 10; else if (p.y > h + 10) p.y = -10;
+        continue;
+      }
+      var lx = p.lx, ly = p.ly;
+      if (p.spin) { var ex = lx - 50, ey = ly - 45; lx = 50 + ex * ca - ey * sa; ly = 45 + ex * sa + ey * ca; }
+      var wx = Math.sin(t * p.f1 + p.seed) * p.amp + Math.sin(t * p.f2 * 1.7 + p.seed * 2.3) * p.amp * 0.6;
+      var wy = Math.cos(t * p.f2 + p.seed * 1.3) * p.amp + Math.cos(t * p.f1 * 2.1 + p.seed) * p.amp * 0.6;
+      if (R) { p.x = ox + lx * S + wx * 0.35; p.y = oy + ly * S + wy * 0.35; continue; }
+      var tx = ox + lx * S + wx * chaos, ty = oy + ly * S + wy * chaos;
+      p.vx += (tx - p.x) * k + (Math.random() - 0.5) * 0.5 * chaos;
+      p.vy += (ty - p.y) * k + (Math.random() - 0.5) * 0.5 * chaos;
+      dx = p.x - mx; dy = p.y - my; d2 = dx * dx + dy * dy;
+      if (d2 < 28900 && d2 > 0.01) { d = Math.sqrt(d2); f = (1 - d / 170) * 5.5; p.vx += dx / d * f; p.vy += dy / d * f; }
+      p.vx *= 0.9; p.vy *= 0.9; p.x += p.vx; p.y += p.vy;
+    }
+    for (i = 0; i < this.parts.length; i++) {
+      p = this.parts[i];
+      if (!p.dust || R) continue;
+      ctx.globalAlpha = p.alpha; ctx.fillStyle = p.acc ? accent : '#F6EDE6';
+      ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+    }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = 'rgba(246,237,230,0.9)';
+    for (i = 0; i < this.parts.length; i++) { p = this.parts[i]; if (!p.dust && !p.acc) ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size); }
+    ctx.fillStyle = accent;
+    for (i = 0; i < this.parts.length; i++) { p = this.parts[i]; if (!p.dust && p.acc) ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size); }
+    if (R) this._pDrawn = true;
   }
 
   setupReveals() {
@@ -880,28 +958,12 @@ class Component extends DCLogic {
     this.v += (dy - this.v) * 0.2;
     var av = Math.min(1, Math.abs(this.v) / 40);
 
-    if (this.letters && this.letters.length && this.heroEl) {
-      var hr = this.heroEl.getBoundingClientRect();
-      if (hr.bottom > 0 && hr.top < vh) {
-        this.phase += dt * 0.0022 * (1 + av * 3);
-        for (var i = 0; i < this.letters.length; i++) {
-          var g = 700;
-          if (!R) { var s = Math.sin(this.phase - i * 0.55); g = Math.round(this.clamp(500 + s * (170 + av * 30), 300, 700)); }
-          if (this.letters[i]._g !== g) { this.letters[i].style.fontVariationSettings = "'wght' " + g; this.letters[i]._g = g; }
-        }
-      }
-    }
+    this.particleFrame(t, dt, av, vh);
 
     if (this.spins && this.spins.length) {
       if (!R) this.spin = (this.spin + dt * 0.018 * (1 + av * 8)) % 360;
       var tr = 'rotate(' + this.spin.toFixed(2) + 'deg)';
       for (var sI = 0; sI < this.spins.length; sI++) { var se = this.spins[sI]; se.style.transformBox = 'view-box'; se.style.transformOrigin = '50px 45px'; se.style.transform = tr; }
-    }
-
-    if (this.ticker) {
-      if (!R) this.tick0 += dt * 0.03 * (1 + av * 6);
-      var half = this.ticker.scrollWidth / 2 || 1;
-      this.ticker.style.transform = 'translate3d(' + (-(this.tick0 % half)).toFixed(1) + 'px,0,0)';
     }
 
     if (this.manifesto && this.words.length) {
@@ -960,7 +1022,7 @@ class Component extends DCLogic {
     this._raf = requestAnimationFrame(this._loop);
   }
 }
-dcMount(Component, {"accent": "#FF9CC2", "heroWord": "konfeta", "preloader": true, "reducedMotion": false});
+dcMount(Component, {"accent": "#FF9CC2", "chaos": 1, "preloader": true, "reducedMotion": false});
 </script>
 </body>
 </html>
