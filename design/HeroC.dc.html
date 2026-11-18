@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Hero C — konfeta дышит</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&amp;family=Nunito:wght@400..900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#260307}
+*,*::before,*::after{box-sizing:border-box}
+.kf-d{font-family:'Comfortaa','Nunito',ui-rounded,sans-serif}
+.kf-mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+</style>
+</helmet>
+<div data-hc-root style="position: relative; width: 1440px; height: 900px; overflow: hidden; display: flex; flex-direction: column; background: #260307; color: #F6EDE6; font-family: 'Nunito', ui-rounded, sans-serif">
+<div style="display: flex; align-items: center; justify-content: space-between; height: 76px; padding: 0 56px; border-bottom: 1px solid rgba(246,237,230,.1)">
+<span class="kf-d" style="font-weight: 700; font-size: 18px">konfeta <span style="font-weight: 400; color: #D9C6C2">running club</span></span>
+<div style="display: flex; gap: 28px; font-size: 15px; font-weight: 600; color: #D9C6C2"><span>Как бегаем</span><span>Где</span><span>Фото</span><span>Вопросы</span></div>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: {{accent}}; color: #260307; font-weight: 800; font-size: 15px; text-decoration: none">Пробежать с нами →</a>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 24px 56px 0">
+<div class="kf-mono" style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784"><span>Женский беговой клуб · Москва</span><span>Шелепихинская набережная</span></div>
+<div aria-hidden="true" class="kf-d" style="display: flex; justify-content: space-between; margin-top: 36px; overflow: hidden; font-size: 245px; font-weight: 700; line-height: 1; letter-spacing: -.02em; padding-bottom: .08em">
+<sc-for list="{{letters}}" as="l" hint-placeholder-count="7"><span data-hc-letter style="display: inline-block; font-variation-settings: 'wght' 700">{{l.ch}}</span></sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 24px">
+<span class="kf-d" style="font-size: 44px; line-height: 1; color: #D9C6C2">running club</span>
+<span style="flex: 1; height: 1px; background: rgba(246,237,230,.25)"></span>
+<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 84px; height: auto; color: {{accent}}"><g data-hc-spin><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></g><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-top: 44px">
+<h1 class="kf-d" style="margin: 0; font-size: 64px; line-height: 1.02; font-weight: 700; letter-spacing: -.03em">Бегаем медленно. Болтаем много.</h1>
+<div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start; justify-self: end; max-width: 540px">
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #D9C6C2">Начинали несколько соседок — сейчас нас больше 10. Пробежки бесплатные.</p>
+<div style="display: flex; gap: 12px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; background: {{accent}}; color: #260307; font-weight: 800; font-size: 17px; text-decoration: none">Пробежать с нами →</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(246,237,230,.35); color: #F6EDE6; font-weight: 700; font-size: 17px; text-decoration: none">Как мы бегаем</a>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" style="margin-top: 36px; border-top: 1px solid rgba(246,237,230,.14); padding: 16px 0; overflow: hidden">
+<div data-hc="ticker" class="kf-d" style="display: flex; width: max-content; font-size: 15px; font-weight: 700">
+<sc-for list="{{ticks}}" as="t" hint-placeholder-count="10"><span style="display: flex; align-items: center; gap: 18px; padding-right: 18px; color: {{t.color}}; white-space: nowrap"><span>{{t.label}}</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="{{accent}}" stroke-width="1.5"></circle><circle cx="6" cy="6" r="1.5" fill="{{accent}}"></circle></svg></span></sc-for>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF9CC2","options":["#FF9CC2","#FFB36B","#9FE8C8"]},"heroWord":{"editor":"text","default":"konfeta"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    if (!this._m) {
+      var sp = '', th1 = Math.PI * 2 * 2.55, i;
+      for (i = 0; i <= 140; i++) { var th = th1 * i / 140, r = 2 + 28 * (th / th1), ph = Math.PI / 2 + Math.PI * 0.08 - (th1 - th); sp += (i ? ' L' : 'M') + (50 + r * Math.cos(ph)).toFixed(1) + ' ' + (45 + r * Math.sin(ph)).toFixed(1); }
+      var words = ['медленно', 'в темпе разговора', 'вместе', 'шелепиха', 'без гонки', 'поддержка', 'konfeta'], ticks = [];
+      for (var rep = 0; rep < 4; rep++) for (i = 0; i < words.length; i++) ticks.push({ label: words[i], color: i % 2 ? '#A88784' : '#F6EDE6' });
+      this._m = { spiral: sp, ticks: ticks };
+    }
+    var word = String(this.props.heroWord ?? 'konfeta').trim().slice(0, 10) || 'konfeta';
+    return {
+      accent: this.props.accent ?? '#FF9CC2',
+      spiral: this._m.spiral, ticks: this._m.ticks,
+      letters: Array.from(word).map(function (ch, i) { return { ch: ch, i: i }; })
+    };
+  }
+
+  componentDidMount() {
+    var self = this;
+    this._alive = true; this._tries = 0;
+    this._initFn = function () { self.init(); };
+    setTimeout(this._initFn, 30);
+  }
+
+  componentWillUnmount() {
+    this._alive = false;
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._off) this._off();
+  }
+
+  init() {
+    var self = this;
+    if (!this._alive) return;
+    var root = document.querySelector('[data-hc-root]');
+    if (!root) { if (this._tries++ < 60) setTimeout(this._initFn, 50); return; }
+    this.letters = Array.prototype.slice.call(document.querySelectorAll('[data-hc-letter]'));
+    this.spinEl = document.querySelector('[data-hc-spin]');
+    this.ticker = document.querySelector('[data-hc="ticker"]');
+    var rm = false; try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    this.reduced = rm; this.phase = 0; this.v = 0; this.tick0 = 0; this.spin = 0; this.lx = null; this.ly = null;
+    var move = function (e) {
+      if (self.lx !== null) self.v = Math.min(60, self.v + Math.hypot(e.clientX - self.lx, e.clientY - self.ly) * 0.25);
+      self.lx = e.clientX; self.ly = e.clientY;
+    };
+    var wheel = function (e) { self.v = Math.min(60, self.v + Math.abs(e.deltaY) * 0.2); };
+    root.addEventListener('pointermove', move);
+    root.addEventListener('wheel', wheel, { passive: true });
+    this._off = function () { root.removeEventListener('pointermove', move); root.removeEventListener('wheel', wheel); };
+    this.letters.forEach(function (el, i) {
+      if (!rm && el.animate) el.animate([{ transform: 'translateY(110%)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], { duration: 1200, delay: 200 + i * 70, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+    });
+    this._loop = function (t) { self.frame(t); };
+    this._raf = requestAnimationFrame(this._loop);
+  }
+
+  frame(t) {
+    if (!this._alive) return;
+    var dt = Math.min(64, t - (this._lt || t)) || 16; this._lt = t;
+    this.v *= 0.94;
+    var av = Math.min(1, this.v / 40), R = this.reduced;
+    if (!R) this.phase += dt * 0.0022 * (1 + av * 3);
+    for (var i = 0; i < this.letters.length; i++) {
+      var g = 700;
+      if (!R) { var s = Math.sin(this.phase - i * 0.55); g = Math.round(Math.max(300, Math.min(700, 500 + s * (170 + av * 30)))); }
+      this.letters[i].style.fontVariationSettings = "'wght' " + g;
+    }
+    if (this.spinEl) {
+      if (!R) this.spin = (this.spin + dt * 0.018 * (1 + av * 8)) % 360;
+      this.spinEl.style.transformBox = 'view-box'; this.spinEl.style.transformOrigin = '50px 45px';
+      this.spinEl.style.transform = 'rotate(' + this.spin.toFixed(2) + 'deg)';
+    }
+    if (this.ticker) {
+      if (!R) this.tick0 += dt * 0.03 * (1 + av * 6);
+      var half = this.ticker.scrollWidth / 2 || 1;
+      this.ticker.style.transform = 'translate3d(' + (-(this.tick0 % half)).toFixed(1) + 'px,0,0)';
+    }
+    this._raf = requestAnimationFrame(this._loop);
+  }
+}
+</script>
+</body>
+</html>

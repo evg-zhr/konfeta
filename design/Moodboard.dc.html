@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Moodboard — konfeta running club</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&amp;family=Nunito:wght@400..900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#260307}
+*,*::before,*::after{box-sizing:border-box}
+.kf-d{font-family:'Comfortaa','Nunito',ui-rounded,sans-serif}
+.kf-mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1320px; overflow: hidden; display: flex; flex-direction: column; gap: 36px; padding: 56px; background: #260307; color: #F6EDE6; font-family: 'Nunito', ui-rounded, sans-serif">
+<svg width="0" height="0" aria-hidden="true" style="position: absolute"><defs><filter id="mb-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><filter id="mb-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5 0.8"></feGaussianBlur></filter></defs></svg>
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div style="display: flex; align-items: flex-end; gap: 28px">
+<svg viewBox="0 0 100 130" aria-hidden="true" style="width: 92px; height: auto; color: #F6EDE6"><circle cx="50" cy="45" r="38" fill="none" stroke="currentColor" stroke-width="6"></circle><path d="{{spiral}}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M50 84 V126 M33 108 H67" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span class="kf-mono" style="font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #A88784">Moodboard · konfeta running club · Москва</span>
+<h1 class="kf-d" style="margin: 0; font-size: 104px; line-height: .95; font-weight: 700; letter-spacing: -.04em">медленно и вместе</h1>
+</div>
+</div>
+<div class="kf-d" style="display: flex; gap: 10px; font-size: 15px; font-weight: 700">
+<span style="padding: 10px 18px; border: 1px solid rgba(246,237,230,.3); border-radius: 999px">медленно</span>
+<span style="padding: 10px 18px; border-radius: 999px; background: #FF9CC2; color: #260307">вместе</span>
+<span style="padding: 10px 18px; border: 1px solid rgba(246,237,230,.3); border-radius: 999px">тепло</span>
+<span style="padding: 10px 18px; border: 1px solid rgba(246,237,230,.3); border-radius: 999px">поддержка</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: 5fr 7fr; gap: 24px; height: 330px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="flex: 1.3; display: flex; justify-content: space-between; align-items: flex-end; padding: 18px 20px; background: #260307; border: 1px solid rgba(246,237,230,.22); border-radius: 18px"><span class="kf-d" style="font-size: 22px; font-weight: 700">Шоколад</span><span class="kf-mono" style="font-size: 12px; color: #A88784; text-align: right">#260307 · из логотипа<br>фон, текст на акценте</span></div>
+<div style="flex: 1.3; display: flex; justify-content: space-between; align-items: flex-end; padding: 18px 20px; background: #F6EDE6; color: #260307; border-radius: 18px"><span class="kf-d" style="font-size: 22px; font-weight: 700">Крем</span><span class="kf-mono" style="font-size: 12px; color: #7A4E4E; text-align: right">#F6EDE6<br>текст, «тихие» секции</span></div>
+<div style="flex: 1; display: flex; justify-content: space-between; align-items: flex-end; padding: 18px 20px; background: #FF9CC2; color: #260307; border-radius: 18px"><span class="kf-d" style="font-size: 22px; font-weight: 700">Конфета</span><span class="kf-mono" style="font-size: 12px; text-align: right">#FF9CC2<br>только CTA и активное</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div class="kf-mono" style="padding: 10px 12px; background: #3D0C12; border-radius: 12px; font-size: 11px; color: #D9C6C2">#3D0C12<br>поверхность</div>
+<div class="kf-mono" style="padding: 10px 12px; background: #A88784; color: #260307; border-radius: 12px; font-size: 11px">#A88784<br>вторичный</div>
+<div class="kf-mono" style="padding: 10px 12px; background: #FFC266; color: #260307; border-radius: 12px; font-size: 11px">#FFC266<br>только ошибки</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: space-between; padding: 26px; background: #3D0C12; border-radius: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: center"><span class="kf-d" style="font-size: 104px; line-height: 1; font-variation-settings: 'wght' 300; letter-spacing: -.03em">konfeta</span><span class="kf-mono" style="font-size: 11px; color: #A88784">wght 300 · вдох</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: center"><span class="kf-d" style="font-size: 104px; line-height: 1; font-variation-settings: 'wght' 700; letter-spacing: -.03em; color: #FF9CC2">konfeta</span><span class="kf-mono" style="font-size: 11px; color: #A88784">wght 700 · выдох</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 20px; border-top: 1px solid rgba(246,237,230,.14)">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="kf-d" style="font-size: 24px; font-weight: 700">Comfortaa</span><span style="font-size: 14px; line-height: 1.45; color: #D9C6C2">Как в логотипе. Variable 300–700 — заголовки и «дыхание».</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 24px; font-weight: 800">Nunito</span><span style="font-size: 14px; line-height: 1.45; color: #D9C6C2">Мягкий текстовый: абзацы, кнопки, форма.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="kf-mono" style="font-size: 20px; font-weight: 700">10+ · 0 ₽</span><span style="font-size: 14px; line-height: 1.45; color: #D9C6C2">JetBrains Mono — цифры, метки, номера секций.</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; height: 230px">
+<div style="position: relative; background: #3D0C12; border-radius: 18px; overflow: hidden">
+<svg viewBox="0 0 300 200" aria-hidden="true" style="display: block; width: 100%; height: 100%"><g transform="translate(108 30) scale(1.25)"><circle cx="50" cy="45" r="38" fill="none" stroke="#F6EDE6" stroke-opacity=".25" stroke-width="5"></circle><path d="{{spiral}}" fill="none" stroke="#FF9CC2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+<span class="kf-mono" style="position: absolute; left: 18px; top: 16px; font-size: 12px; letter-spacing: .12em; color: #A88784">01 · СПИРАЛЬ-КОНФЕТА</span>
+</div>
+<div style="position: relative; background: #3D0C12; border-radius: 18px; overflow: hidden">
+<svg viewBox="0 0 300 200" aria-hidden="true" style="display: block; width: 100%; height: 100%"><path d="M-10 150 C 60 110, 110 190, 170 150 S 260 70, 320 100" fill="none" stroke="#55202A" stroke-width="30" stroke-linecap="round"></path><path d="M20 118 C 70 92, 120 160, 172 124 S 250 54, 290 74" fill="none" stroke="#FF9CC2" stroke-width="3.5" stroke-linecap="round"></path><circle cx="20" cy="118" r="7" fill="#F6EDE6"></circle></svg>
+<span class="kf-mono" style="position: absolute; left: 18px; top: 16px; font-size: 12px; letter-spacing: .12em; color: #A88784">02 · ЛИНИЯ НАБЕРЕЖНОЙ</span>
+</div>
+<div style="position: relative; background: #3D0C12; border-radius: 18px; overflow: hidden">
+<svg viewBox="0 0 300 200" aria-hidden="true" style="display: block; width: 100%; height: 100%"><path d="{{laps}}" fill="none" stroke="#FF9CC2" stroke-width="2.5" stroke-linecap="round"></path></svg>
+<span class="kf-mono" style="position: absolute; left: 18px; top: 16px; font-size: 12px; letter-spacing: .12em; color: #A88784">03 · КРУГИ ВЕЛОТРЕКА</span>
+</div>
+<div style="position: relative; background: #3D0C12; border-radius: 18px; overflow: hidden">
+<svg viewBox="0 0 300 200" aria-hidden="true" style="display: block; width: 100%; height: 100%"><path d="M0 120 Q37.5 80 75 120 T150 120 T225 120 T300 120" fill="none" stroke="#FF9CC2" stroke-width="3.5" stroke-linecap="round"></path><path d="M0 140 Q37.5 118 75 140 T150 140 T225 140 T300 140" fill="none" stroke="#F6EDE6" stroke-opacity=".3" stroke-width="2"></path></svg>
+<span class="kf-mono" style="position: absolute; left: 18px; top: 16px; font-size: 12px; letter-spacing: .12em; color: #A88784">04 · ДЫХАНИЕ</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: 7fr 5fr; gap: 24px; height: 330px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="flex: 1; display: grid; grid-template-columns: 1.3fr .8fr 1fr 1fr; gap: 10px">
+<figure style="position: relative; margin: 0; overflow: hidden; border-radius: 16px; background: #3A0D13"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g filter="url(#mb-blur)"><ellipse cx="38" cy="58" rx="9" ry="26" fill="#F6EDE6" opacity=".14"></ellipse><ellipse cx="58" cy="60" rx="8" ry="24" fill="#F6EDE6" opacity=".11"></ellipse></g><rect width="100" height="100" filter="url(#mb-grain)" opacity=".45" style="mix-blend-mode: soft-light"></rect></svg><figcaption style="position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 13px; font-weight: 600; line-height: 1.35">Бегут рядом и болтают — не позируют</figcaption></figure>
+<figure style="position: relative; margin: 0; overflow: hidden; border-radius: 16px; background: #47161D"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g filter="url(#mb-blur)"><ellipse cx="50" cy="42" rx="20" ry="12" fill="#F6EDE6" opacity=".14"></ellipse></g><rect width="100" height="100" filter="url(#mb-grain)" opacity=".45" style="mix-blend-mode: soft-light"></rect></svg><figcaption style="position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 13px; font-weight: 600; line-height: 1.35">Смех, объятия после финиша</figcaption></figure>
+<figure style="position: relative; margin: 0; overflow: hidden; border-radius: 16px; background: #350B11"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g filter="url(#mb-blur)"><rect x="-20" y="46" width="140" height="10" fill="#F6EDE6" opacity=".09"></rect><rect x="-20" y="64" width="140" height="2" fill="#F6EDE6" opacity=".1"></rect></g><rect width="100" height="100" filter="url(#mb-grain)" opacity=".45" style="mix-blend-mode: soft-light"></rect></svg><figcaption style="position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 13px; font-weight: 600; line-height: 1.35">Набережная со спины, лёгкий смаз</figcaption></figure>
+<figure style="position: relative; margin: 0; overflow: hidden; border-radius: 16px; background: #421219"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g filter="url(#mb-blur)"><rect x="24" y="32" width="52" height="36" fill="#F6EDE6" opacity=".07"></rect></g><rect width="100" height="100" filter="url(#mb-grain)" opacity=".45" style="mix-blend-mode: soft-light"></rect></svg><figcaption style="position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 13px; font-weight: 600; line-height: 1.35">Детали: шнурки, кофе, конфеты</figcaption></figure>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 24px; font-size: 14px; color: #D9C6C2"><span><span class="kf-mono" style="color: #F6EDE6; letter-spacing: .1em">ФОТО:</span> свои кадры участниц, тёплое плёночное зерно, утренний свет, живые эмоции.</span><span><span class="kf-mono" style="color: #FFC266; letter-spacing: .1em">НЕТ:</span> сток, фитнес-глянец, «до/после».</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 24px; background: #3D0C12; border-radius: 18px">
+<span class="kf-mono" style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #A88784">Темп страницы: громко ↔ тихо</span>
+<div style="flex: 1; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; align-items: end">
+<div style="height: 100%; border-radius: 8px 8px 0 0; background: #FF9CC2"></div>
+<div style="height: 64%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.5)"></div>
+<div style="height: 32%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.3)"></div>
+<div style="height: 38%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.3)"></div>
+<div style="height: 90%; border-radius: 8px 8px 0 0; background: #FF9CC2"></div>
+<div style="height: 56%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.5)"></div>
+<div style="height: 70%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.5)"></div>
+<div style="height: 30%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.3)"></div>
+<div style="height: 24%; border-radius: 8px 8px 0 0; background: rgba(246,237,230,.3)"></div>
+<div style="height: 96%; border-radius: 8px 8px 0 0; background: #FF9CC2"></div>
+</div>
+<div class="kf-mono" style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; font-size: 10px; color: #A88784"><span>HERO</span><span>МЫ</span><span>ФОРМ</span><span>ГДЕ</span><span>ФОТО</span><span>МАРШ</span><span>ЦИФР</span><span>КТО</span><span>FAQ</span><span>CTA</span></div>
+<div style="display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(246,237,230,.14)">
+<svg width="72" height="48" viewBox="0 0 72 48" aria-hidden="true"><path d="M2 46 H70 M2 46 V2" stroke="#F6EDE6" stroke-opacity=".2"></path><path d="M2 46 C 14 6, 26 3, 70 2" fill="none" stroke="#FF9CC2" stroke-width="2.5"></path></svg>
+<span style="font-size: 14px; line-height: 1.45; color: #D9C6C2"><span class="kf-mono" style="color: #F6EDE6">expo.out</span>, но медленнее обычного: дыхание 3–4 с, микро 300–400 мс, переходы 800–1200 мс.</span>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+  renderVals() {
+    if (!this._p) {
+      var sp = '', i, th1 = Math.PI * 2 * 2.55;
+      for (i = 0; i <= 140; i++) { var th = th1 * i / 140, r = 2 + 28 * (th / th1), ph = Math.PI / 2 + Math.PI * 0.08 - (th1 - th); sp += (i ? ' L' : 'M') + (50 + r * Math.cos(ph)).toFixed(1) + ' ' + (45 + r * Math.sin(ph)).toFixed(1); }
+      var lp = '';
+      for (i = 0; i <= 240; i++) { var t = i / 240, a = -Math.PI / 2 + t * Math.PI * 5, R = 30 + t * 34; lp += (i ? ' L' : 'M') + (150 + Math.cos(a) * R * 1.7).toFixed(1) + ' ' + (112 + Math.sin(a) * R).toFixed(1); }
+      this._p = { spiral: sp, laps: lp };
+    }
+    return this._p;
+  }
+}
+</script>
+</body>
+</html>
